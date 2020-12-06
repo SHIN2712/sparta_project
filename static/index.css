@@ -56,12 +56,14 @@ body {
 
 .sub-title {
     margin-top: 20px;
-    margin-left: 55%;
+    margin-left: 66%;
 }
 
 #cards-box {
     /*float: left;*/
+    width: 100%;
 }
+
 
 .card {
     display: flex;
@@ -78,7 +80,7 @@ body {
     width: 100px;
 }
 
-.card-title{
+.card-title {
     font-size: 25px;
 }
 
@@ -111,6 +113,12 @@ body {
 }
 
 .side-list {
+    background-color: #2a3b4c;
+    color: white;
+}
+
+
+.page-item {
     background-color: #2a3b4c;
     color: white;
 }

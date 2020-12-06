@@ -1,140 +1,153 @@
-<!Doctype html>
-<html lang="ko">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta property="og:title" content="기술노트"/>
-    <meta property="og:description" content="기술 면접 대비 정보 모음"/>
-    <meta property="og:image" content="{{ url_for('static', filename='zebra-4618513_1920.jpg') }}"/>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
-    <!-- style -->
-    <link rel="stylesheet" type="text/css" href="static/index.css"/>
-    <!-- JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-    <!-- 구글폰트 -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js"
-            integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
-            crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"
-            integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
-            crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
-    <title>기술 노트</title>
-</head>
 
-<body>
-<div class="wrap">
-    <div class="jumbotron image-container top-title">
-        <h1 class="display-4">skill4interview</h1>
-        <p class="lead sub-title">기술 면접 대비 정보 모음</p>
-        <i class="fab fa-github-square"></i>
-    </div>
-    <div class="modal fade form-post" id="post-box" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div>
-            <div class="form-group">
-                <label for="post-category">카테고리</label>
-                <select class="custom-select" id="post-category">
-                    <option selected>카테고리를 선택해주세요.</option>
-                    <option value="computer_architecture">컴퓨터구조</option>
-                    <option value="operating_system">운영체제</option>
-                    <option value="data_structure_algorithm">자료구조와 알고리즘</option>
-                    <option value="programming">프로그래밍</option>
-                    <option value="network">네트워크</option>
-                    <option value="multimedia">멀티미디어</option>
-                    <option value="information_security">정보보호</option>
-                    <option value="software_engineering">소프트웨어공학</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="comment-url">간단 코멘트</label>
-                <input id="comment-url" class="form-control" rows="2" placeholder="다익스트라 알고리즘">
-            </div>
-            <button type="button" class="btn btn-primary" onclick="postArticle()">저장</button>
-            <button type="button" class="btn btn-primary" onclick="postClose()">닫기</button>
-        </div>
-    </div>
-    <div class="content">
-        <div class="side">
-            <ul class="list-group pagination-sm">
-                <li class="list-group-item d-flex justify-content-between align-items-center side-list"
-                    id="list-computer-architecture">
-                    <a href="/article/computer_architecture">컴퓨터구조</a>
-                    <span class="badge badge-primary badge-pill">4</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center side-list"
-                    id="list-operating-system">
-                    <a href="/article/operating_system">운영체제</a>
-                    <span class="badge badge-primary badge-pill">2</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center side-list"
-                    id="list-data-structure-algorithm">
-                    <a href="/article/data_structure_algorithm">자료구조와 알고리즘</a>
-                    <span class="badge badge-primary badge-pill">21</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center side-list"
-                    id="list-programming">
-                    <a href="/article/programming">프로그래밍</a>
-                    <span class="badge badge-primary badge-pill">14</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center side-list"
-                    id="list-network">
-                    <a href="/article/network">네트워크</a>
-                    <span class="badge badge-primary badge-pill">2</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center side-list"
-                    id="list-multimedia">
-                    <a href="/article/multimedia">멀티미디어</a>
-                    <span class="badge badge-primary badge-pill">13</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center side-list"
-                    id="list-information-security">
-                    <a href="/article/information_security">정보보호</a>
-                    <span class="badge badge-primary badge-pill">5</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center side-list"
-                    id="list-software-engineering">
-                    <a href="/article/software_engineering">소프트웨어공학</a>
-                    <span class="badge badge-primary badge-pill">7</span>
-                </li>
-            </ul>
-        </div>
-        <div id="cards-box" class="card-group">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</div>
+{% extends "layout.html" %}
+{% block title %}skill4interview{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
 <script src="static/main.js"></script>
-</body>
+{% endblock %}
 
-</html>
+
+<!--<!Doctype html>-->
+<!--<html lang="ko">-->
+
+<!--<head>-->
+<!--    &lt;!&ndash; Required meta tags &ndash;&gt;-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+<!--    <meta property="og:title" content="기술노트"/>-->
+<!--    <meta property="og:description" content="기술 면접 대비 정보 모음"/>-->
+<!--    <meta property="og:image" content="{{ url_for('static', filename='zebra-4618513_1920.jpg') }}"/>-->
+<!--    &lt;!&ndash; Bootstrap CSS &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"-->
+<!--          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"-->
+<!--          crossorigin="anonymous">-->
+<!--    &lt;!&ndash; style &ndash;&gt;-->
+<!--    <link rel="stylesheet" type="text/css" href="static/index.css"/>-->
+<!--    &lt;!&ndash; JS &ndash;&gt;-->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"-->
+<!--            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"-->
+<!--            crossorigin="anonymous"></script>-->
+<!--    &lt;!&ndash; Optional JavaScript &ndash;&gt;-->
+<!--    &lt;!&ndash; jQuery first, then Popper.js, then Bootstrap JS &ndash;&gt;-->
+<!--    <script src="https://code.jquery.com/jquery-3.5.1.min.js"-->
+<!--            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"-->
+<!--            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"-->
+<!--            crossorigin="anonymous"></script>-->
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"-->
+<!--            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"-->
+<!--            crossorigin="anonymous"></script>-->
+<!--    &lt;!&ndash; 구글폰트 &ndash;&gt;-->
+<!--    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js"-->
+<!--            integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"-->
+<!--            crossorigin="anonymous"></script>-->
+<!--    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"-->
+<!--            integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"-->
+<!--            crossorigin="anonymous"></script>-->
+<!--    <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">-->
+<!--    <link rel="shortcut icon" href="#">-->
+<!--    <title>기술 노트</title>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--<div class="wrap">-->
+<!--    <div class="jumbotron image-container top-title">-->
+<!--        <h1 class="display-4">skill4interview</h1>-->
+<!--        <p class="lead sub-title">기술 면접 대비 정보 모음</p>-->
+<!--        <i class="fab fa-github-square"></i>-->
+<!--    </div>-->
+<!--    <div class="modal fade form-post" id="post-box" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"-->
+<!--         aria-hidden="true">-->
+<!--        <div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="post-category">카테고리</label>-->
+<!--                <select class="custom-select" id="post-category">-->
+<!--                    <option selected>카테고리를 선택해주세요.</option>-->
+<!--                    <option value="computer_architecture">컴퓨터구조</option>-->
+<!--                    <option value="operating_system">운영체제</option>-->
+<!--                    <option value="data_structure_algorithm">자료구조와 알고리즘</option>-->
+<!--                    <option value="programming">프로그래밍</option>-->
+<!--                    <option value="network">네트워크</option>-->
+<!--                    <option value="multimedia">멀티미디어</option>-->
+<!--                    <option value="information_security">정보보호</option>-->
+<!--                    <option value="software_engineering">소프트웨어공학</option>-->
+<!--                </select>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="comment-url">간단 코멘트</label>-->
+<!--                <input id="comment-url" class="form-control" rows="2" placeholder="다익스트라 알고리즘">-->
+<!--            </div>-->
+<!--            <button type="button" class="btn btn-primary" onclick="postArticle()">저장</button>-->
+<!--            <button type="button" class="btn btn-primary" onclick="postClose()">닫기</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="content">-->
+<!--        <div class="side">-->
+<!--            <ul class="list-group pagination-sm">-->
+<!--                <li class="list-group-item d-flex justify-content-between align-items-center side-list"-->
+<!--                    id="list-computer-architecture">-->
+<!--                    <a href="/article/computer_architecture">컴퓨터구조</a>-->
+<!--                    <span class="badge badge-primary badge-pill">4</span>-->
+<!--                </li>-->
+<!--                <li class="list-group-item d-flex justify-content-between align-items-center side-list"-->
+<!--                    id="list-operating-system">-->
+<!--                    <a href="/article/operating_system">운영체제</a>-->
+<!--                    <span class="badge badge-primary badge-pill">2</span>-->
+<!--                </li>-->
+<!--                <li class="list-group-item d-flex justify-content-between align-items-center side-list"-->
+<!--                    id="list-data-structure-algorithm">-->
+<!--                    <a href="/article/data_structure_algorithm">자료구조와 알고리즘</a>-->
+<!--                    <span class="badge badge-primary badge-pill">21</span>-->
+<!--                </li>-->
+<!--                <li class="list-group-item d-flex justify-content-between align-items-center side-list"-->
+<!--                    id="list-programming">-->
+<!--                    <a href="/article/programming">프로그래밍</a>-->
+<!--                    <span class="badge badge-primary badge-pill">14</span>-->
+<!--                </li>-->
+<!--                <li class="list-group-item d-flex justify-content-between align-items-center side-list"-->
+<!--                    id="list-network">-->
+<!--                    <a href="/article/network">네트워크</a>-->
+<!--                    <span class="badge badge-primary badge-pill">2</span>-->
+<!--                </li>-->
+<!--                <li class="list-group-item d-flex justify-content-between align-items-center side-list"-->
+<!--                    id="list-multimedia">-->
+<!--                    <a href="/article/multimedia">멀티미디어</a>-->
+<!--                    <span class="badge badge-primary badge-pill">13</span>-->
+<!--                </li>-->
+<!--                <li class="list-group-item d-flex justify-content-between align-items-center side-list"-->
+<!--                    id="list-information-security">-->
+<!--                    <a href="/article/information_security">정보보호</a>-->
+<!--                    <span class="badge badge-primary badge-pill">5</span>-->
+<!--                </li>-->
+<!--                <li class="list-group-item d-flex justify-content-between align-items-center side-list"-->
+<!--                    id="list-software-engineering">-->
+<!--                    <a href="/article/software_engineering">소프트웨어공학</a>-->
+<!--                    <span class="badge badge-primary badge-pill">7</span>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--        <div id="cards-box" class="card-group">-->
+<!--            <nav aria-label="Page navigation example">-->
+<!--                <ul class="pagination justify-content-center">-->
+<!--                    <li class="page-item disabled">-->
+<!--                        <a class="page-link" href="#" tabindex="-1">Previous</a>-->
+<!--                    </li>-->
+<!--                    <li class="page-item"><a class="page-link" href="#">1</a></li>-->
+<!--                    <li class="page-item"><a class="page-link" href="#">2</a></li>-->
+<!--                    <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+<!--                    <li class="page-item">-->
+<!--                        <a class="page-link" href="#">Next</a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </nav>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<script src="static/main.js"></script>-->
+<!--</body>-->
+
+<!--</html>-->

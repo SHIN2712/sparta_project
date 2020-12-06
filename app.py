@@ -51,47 +51,5 @@ def articles(category):
     return jsonify({'result': 'success', 'articles': stack_list})
 
 
-# @app.route('/operating_system', methods=['GET'])
-# def read_articles():
-#     stack_list = list(db.devblog.find({'category': "operating_system"}, {'_id': False}).sort('_id', 1))
-#     return jsonify({'result': 'success', 'articles': stack_list})
-#
-#
-# @app.route('/data_structure_algorithm', methods=['GET'])
-# def read_articles():
-#     stack_list = list(db.devblog.find({'category': "data_structure_algorithm"}, {'_id': False}).sort('_id', 1))
-#     return jsonify({'result': 'success', 'articles': stack_list})
-#
-#
-# @app.route('/programming', methods=['GET'])
-# def read_articles():
-#     stack_list = list(db.devblog.find({'category': "programming"}, {'_id': False}).sort('_id', 1))
-#     return jsonify({'result': 'success', 'articles': stack_list})
-#
-#
-# @app.route('/network', methods=['GET'])
-# def read_articles():
-#     stack_list = list(db.devblog.find({'category': "network"}, {'_id': False}).sort('_id', 1))
-#     return jsonify({'result': 'success', 'articles': stack_list})
-#
-#
-# @app.route('/multimedia', methods=['GET'])
-# def read_articles():
-#     stack_list = list(db.devblog.find({'category': "multimedia"}, {'_id': False}).sort('_id', 1))
-#     return jsonify({'result': 'success', 'articles': stack_list})
-#
-#
-# @app.route('/information_security', methods=['GET'])
-# def read_articles():
-#     stack_list = list(db.devblog.find({'category': "information_security"}, {'_id': False}).sort('_id', 1))
-#     return jsonify({'result': 'success', 'articles': stack_list})
-#
-#
-# @app.route('/software_engineering', methods=['GET'])
-# def read_articles():
-#     stack_list = list(db.devblog.find({'category': "software_engineering"}, {'_id': False}).sort('_id', 1))
-#     return jsonify({'result': 'success', 'articles': stack_list})
-
-
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

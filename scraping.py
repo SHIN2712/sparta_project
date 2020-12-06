@@ -39,10 +39,10 @@ def remove_data():
     return 0
 
 
-# add_data()
-schedule.every().days.at("00:04").do(remove_data)
-schedule.every().days.at("00:05").do(add_data)
-
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+add_data()
+# schedule.every().days.at("00:04").do(remove_data)
+# schedule.every().days.at("00:05").do(add_data)
+#
+# while True:
+#     schedule.run_pending()
+#     time.sleep(1)
